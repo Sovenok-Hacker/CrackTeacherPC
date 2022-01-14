@@ -1,5 +1,5 @@
 import telebot, pysyscom, requests
-token = '1802070719:AAGMEftXpY2S4VBoN0XUlj6RHpB90jk-Leo'
+token = open('token.txt').read()
 bot = telebot.TeleBot(token)
 @bot.message_handler(content_types=['text'])
 def handle(message):
