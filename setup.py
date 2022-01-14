@@ -1,7 +1,7 @@
 import os
 icon = input('Use default file icon or your own icon (D for default, path to file for use your local icon):')
 if icon == 'D':
-    icon = "bot.py"
+    icon = "bot.ico"
 else:
   icon = icon
 print('Building EXE file...')
