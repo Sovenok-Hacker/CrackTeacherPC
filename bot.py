@@ -5,7 +5,7 @@ bot = telebot.TeleBot(token)
 def handle(message):
     if message.text.startswith('get'):
         filename = ''.join(message.text.split('get '))
-        bot.send_document(message.from_user.id, open(filename, 'rb').read(), filename=filename)
+        bot.send_document(message.from_user.id, (filename, open(filename, 'rb').read()))
     elif message.text == 'ip':
         bot.send_message(message.from_user.id, requests.get('https://ifconfig.me/ip').text)
     else:
