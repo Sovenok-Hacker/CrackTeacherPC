@@ -1,7 +1,7 @@
 import os
 os.system('pip install -r requirements.txt')
 icon = input('Use default file icon or your own icon (D for default, path to file for use your local icon):')
-if icon == 'D':
+if icon == 'D' or icon == '':
     icon = "bot.ico"
 else:
   icon = icon
