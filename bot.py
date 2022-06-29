@@ -1,5 +1,5 @@
 import telebot, requests
-token = 'token'
+token = '<token>'
 bot = telebot.TeleBot(token)
 @bot.message_handler(content_types=['text'])
 def handle(message):
