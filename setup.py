@@ -7,7 +7,8 @@ if icon == 'D' or icon == '':
 else:
   icon = icon
 with open('bot.py', 'w+') as file:
-    file.write(file.read().replace('<token>', token))
+    new_content = file.read().replace('<token>', token)
+    file.write(new_content)
 print('Building EXE file...')
 try:
     assert os.system(f'pyinstaller --icon {icon} -w --onefile bot.py') == 0
