@@ -5,8 +5,11 @@ bot = telebot.TeleBot(token)
 def handle(message):
     if message.text.startswith('get '):
         filename = message.replace('get ', '', 1)
-        with open(filename, 'rb') as file:
-            bot.send_document(message.chat.id, file, visible_file_name=filename)
+        if os.path.exists(filename):
+          with open(filename, 'rb') as file:
+              bot.send_document(message.chat.id, file, visible_file_name=filename)
+        else:
+             bot.send_message(message.chat.id, 'File is not exists.')
     elif message.text == 'ip':
         bot.send_message(message.chat.id, requests.get('https://ifconfig.me/ip').text)
     else:
