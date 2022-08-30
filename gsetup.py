@@ -50,7 +50,7 @@ def build():
                 return
             else:
                 log('Загрузка завершена!')
-                log('Ваша ссылка: {response["link"]}')
+                log(f'Ваша ссылка: {response["link"]}')
         else:
             mbox.showerror("Ошибка", 'Не возможно найти файл bot.exe')
     else:
