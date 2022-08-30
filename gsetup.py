@@ -3,7 +3,7 @@ from tkinter import messagebox as mbox
 if not 'from' in os.popen('pip').read():
     mbox.showerror("Ошибка", 'Не возможно вызвать pip.')
     raise SystemExit(1)
-if not sys.platform == 'windows':
+if not sys.platform == 'win32':
     mbox.showerror("Ошибка", 'Извините, пока поддерживается только Windows.')
     raise SystemExit(1)
 os.system('pip install -r requirements.txt')
