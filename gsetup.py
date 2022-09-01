@@ -42,6 +42,7 @@ def build():
         log('Сборка завершена!')
     else:
         mbox.showerror("Ошибка", 'Неизвестная ошибка сборки.')
+        return
     os.remove('bot.py')
     os.rename('dist/bot.exe', 'bot.exe')
     if createshortlink.get():
