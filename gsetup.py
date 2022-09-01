@@ -32,6 +32,7 @@ def build():
     token = entry.get()
     if not token:
         mbox.showerror("Ошибка", 'Укажите токен Telegram Bot API!')
+        return
     log('Создание кода по шаблону ...')
     with open('blank.py') as file:
         new_content = file.read().replace('<token>', token)
